@@ -8,6 +8,22 @@ Translations and localization resources for the WowFinder apps
 -   **Write / push**: possible (manual) ⚠️
 -   **Development**: possible (manual) ⚠️
 
+### Sonar public analysis
+
+Overview: https://sonarcloud.io/project/overview?id=WowFinder_translations
+
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=WowFinder_translations&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=WowFinder_translations)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=WowFinder_translations&metric=coverage)](https://sonarcloud.io/summary/new_code?id=WowFinder_translations)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=WowFinder_translations&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=WowFinder_translations)
+
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=WowFinder_translations&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=WowFinder_translations)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=WowFinder_translations&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=WowFinder_translations)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=WowFinder_translations&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=WowFinder_translations)
+
+### Internal dependencies
+
+-   None so far
+
 ## Usage
 
 ### Package mode:
