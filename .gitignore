@@ -130,4 +130,4 @@ dist
 .pnp.*
 
 # Project specific ignores
-generated
+generated/
