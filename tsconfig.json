@@ -7,12 +7,12 @@
         "esModuleInterop": true,
         "noImplicitAny": true,
         "sourceMap": true,
-        "baseUrl": "./src",
+        "baseUrl": "./generated",
         "outDir": "dist",
         "strict": true,
         "moduleResolution": "node",
         "resolveJsonModule": true
     },
-    "include": ["src/**/*"],
+    "include": ["generated/**/*"],
     "exclude": []
 }

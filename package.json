@@ -1,8 +1,12 @@
 {
     "name": "@wowfidner/translations",
-    "author": "Edurne Pascual <herenvardo@gmail.com>",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "description": "Localization assets for WowFinder apps and modules",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "repository": "https://github.com/WowFinder/translations.git",
+    "author": "Edurne Pascual <herenvardo@gmail.com>",
+    "license": "GPL-3.0-or-later",
     "scripts": {
         "lint:base": "eslint . --ext js,ts",
         "lint:stricter": "eslint . --ext js,ts --config .eslintrc-stricter.js",
@@ -12,20 +16,20 @@
         "format:check": "prettier --check \"{src,translations}/**/*.{js,ts,json,json5}\"",
         "test": "jest --passWithNoTests",
         "test:coverage": "jest --coverage --passWithNoTests",
-        "tsc": "tsc",
         "checks:quick": "npm-run-all -pc lint tsc",
         "checks:standard": "npm-run-all -pc lint tsc test",
         "checks:full": "npm-run-all -sc lint:fix format build test:coverage",
         "checks:pedantic": "npm-run-all -sc lint format:check build test:coverage",
-        "build:pre": "rimraf dist",
+        "build:pre": "rimraf dist generated",
+        "build:generate": "ts-node src/generate.ts",
         "build:tsc": "tsc",
-        "build": "npm-run-all -s build:pre build:tsc",
+        "build:setup": "ts-node src/setup.ts",
+        "build": "npm-run-all -s build:pre build:generate build:tsc build:setup",
         "prepublishOnly": "yarn run build",
         "prepare": "yarn run build"
     },
-    "keywords": [],
-    "license": "MIT",
     "dependencies": {
+        "@wowfinder/ts-utils": "^0.1.4",
         "i18next": "^23.10.1",
         "i18next-browser-languagedetector": "^7.2.1",
         "json5": "^2.2.3",
@@ -35,6 +39,7 @@
     },
     "devDependencies": {
         "@tsconfig/recommended": "^1.0.5",
+        "@types/node": "^20.12.7",
         "@types/react": "^18",
         "@typescript-eslint/eslint-plugin": "^7.4.0",
         "@typescript-eslint/parser": "^7.4.0",
@@ -55,6 +60,8 @@
         "prettier": "^3.2.5",
         "rimraf": "^5.0.5",
         "ts-jest": "^29.1.2",
+        "ts-node": "^10.9.2",
+        "tslib": "^2.6.2",
         "typescript": "^5.4.3"
     },
     "packageManager": "yarn@4.1.1"
