@@ -14,9 +14,27 @@ function fileFilter(s: string): boolean {
 
 type Action = (baseName: string, raw: any) => void;
 
+function isPrimitive(val: any): boolean {
+    return (
+        val === undefined ||
+        val === null ||
+        typeof val === 'string' ||
+        typeof val === 'number' ||
+        typeof val === 'boolean'
+    );
+}
+
 function addToObject(objRef: object): Action {
+    const obj = objRef as any;
     return (baseName: string, raw: any): void => {
-        (objRef as any)[baseName] = raw;
+        if (obj[baseName] !== undefined) {
+            if (isPrimitive(obj[baseName]) || isPrimitive(raw)) {
+                throw new Error(`Duplicate key: ${baseName}`);
+            }
+            Object.assign(obj[baseName], raw);
+        } else {
+            obj[baseName] = raw;
+        }
     };
 }
 

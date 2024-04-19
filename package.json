@@ -1,6 +1,6 @@
 {
     "name": "@wowfinder/translations",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Localization assets for WowFinder apps and modules",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
