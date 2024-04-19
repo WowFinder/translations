@@ -4,13 +4,14 @@ import { languages, targetGenerationDir, translationsDir } from './constants';
 import { addToObject, recurseDir } from './helpers';
 
 function buildLanguage(lang: string): void {
-    console.info(`Building ${lang}...`);
     const raw: object = {};
     recurseDir(translationsDir, addToObject(raw));
     if (!(raw as any)[lang]) {
         throw new Error(`Language ${lang} not found`);
     }
-    const rawTs = `const ${lang} = ${JSON.stringify((raw as any)[lang], null, 4)} as const;\nexport default ${lang};`;
+    const wrapped = { translation: (raw as any)[lang] };
+    const stringified = JSON.stringify(wrapped, null, 4);
+    const rawTs = `const ${lang} = ${stringified} as const;\nexport default ${lang};`;
     const targetPath = `${targetGenerationDir}/${lang}.ts`;
     writeFileSync(targetPath, rawTs);
 }
@@ -19,9 +20,6 @@ function build(): void {
     if (!existsSync(targetGenerationDir)) {
         mkdirSync(targetGenerationDir);
     }
-    console.info(
-        `Building from ${translationsDir} to ${targetGenerationDir}...`,
-    );
     languages.forEach((lang: string): void => {
         buildLanguage(lang);
     });
@@ -29,9 +27,15 @@ function build(): void {
         .map(lang => `import ${lang} from './${lang}';`)
         .join('\n');
     const translationsExport = `export default {${languages.join(', ')}};`;
-    const index = `${imports}\n${translationsExport}`;
-    const indexPath = resolve(targetGenerationDir, 'index.ts');
-    writeFileSync(indexPath, index);
+    writeFileSync(
+        resolve(targetGenerationDir, 'translations.ts'),
+        `${imports}\n${translationsExport}`,
+    );
+    const supportedLngs = `export const supportedLngs = ${JSON.stringify(languages)};`;
+    writeFileSync(
+        resolve(targetGenerationDir, 'supportedLngs.ts'),
+        supportedLngs,
+    );
 }
 
 build();

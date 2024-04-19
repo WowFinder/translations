@@ -19,7 +19,7 @@ module.exports = {
         },
         ecmaVersion: 12,
         sourceType: 'module',
-        project: ['./tsconfig.json', './tsconfig.local-scripts.json'],
+        project: ['./tsconfig.scripts.json', './tsconfig.src.json'],
     },
     plugins: [
         'prettier',

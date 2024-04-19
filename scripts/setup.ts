@@ -15,6 +15,13 @@ function copyFromParentSync(baseName: string): void {
     fs.copyFileSync(path.resolve(baseName), path.resolve(distDir, baseName));
 }
 
+function copyFromSrcSync(baseName: string): void {
+    fs.copyFileSync(
+        path.resolve('src', baseName),
+        path.resolve(distDir, baseName),
+    );
+}
+
 /* istanbul ignore next: build script - not testable via jest */
 function main(): void {
     const source = fs
@@ -37,6 +44,7 @@ function main(): void {
     copyFromParentSync('LICENSE');
     copyFromParentSync('README.md');
     copyFromParentSync('.npmignore');
+    copyFromSrcSync('translations.d.ts');
 }
 
 function cleanup(): void {
@@ -46,6 +54,7 @@ function cleanup(): void {
     fs.unlinkSync(path.resolve(distDir, 'README.md'));
     fs.unlinkSync(path.resolve(distDir, '.npmignore'));
     fs.unlinkSync(path.resolve(distDir, 'package.json'));
+    fs.unlinkSync(path.resolve(distDir, 'translations.d.ts'));
 }
 
 main();

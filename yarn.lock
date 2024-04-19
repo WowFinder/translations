@@ -1324,9 +1324,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@wowfidner/translations@workspace:.":
+"@wowfinder/translations@workspace:.":
   version: 0.0.0-use.local
-  resolution: "@wowfidner/translations@workspace:."
+  resolution: "@wowfinder/translations@workspace:."
   dependencies:
     "@tsconfig/recommended": "npm:^1.0.5"
     "@types/node": "npm:^20.12.7"
