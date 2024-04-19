@@ -1,6 +1,6 @@
 {
-    "name": "@wowfidner/translations",
-    "version": "0.0.1",
+    "name": "@wowfinder/translations",
+    "version": "0.0.2",
     "description": "Localization assets for WowFinder apps and modules",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -21,9 +21,11 @@
         "checks:full": "npm-run-all -sc lint:fix format build test:coverage",
         "checks:pedantic": "npm-run-all -sc lint format:check build test:coverage",
         "build:pre": "rimraf dist generated",
-        "build:generate": "ts-node src/generate.ts",
-        "build:tsc": "tsc",
-        "build:setup": "ts-node src/setup.ts",
+        "build:generate": "ts-node scripts/generate.ts",
+        "build:tsc:src": "tsc -p ./tsconfig.src.json",
+        "build:tsc:generated": "tsc -p ./tsconfig.generated.json",
+        "build:tsc": "npm-run-all -s build:tsc:src build:tsc:generated",
+        "build:setup": "ts-node scripts/setup.ts",
         "build": "npm-run-all -s build:pre build:generate build:tsc build:setup",
         "prepublishOnly": "yarn run build",
         "prepare": "yarn run build"
