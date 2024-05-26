@@ -13,7 +13,11 @@ module.exports = {
         },
         ecmaVersion: 12,
         sourceType: 'module',
-        project: ['./tsconfig.json', './tsconfig.tests.json'],
+        project: [
+            './tsconfig.scripts.json',
+            './tsconfig.src.json',
+            './tsconfig.tests.json',
+        ],
     },
     plugins: ['prettier', '@typescript-eslint', 'deprecation'],
     rules: {
