@@ -1,7 +1,7 @@
 {
     "name": "@wowfinder/translations",
     "type": "commonjs",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "description": "Localization assets for WowFinder apps and modules",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -71,5 +71,5 @@
         "tsx": "^4.19.3",
         "typescript": "^5.8.2"
     },
-    "packageManager": "yarn@4.1.1"
+    "packageManager": "yarn@4.8.1"
 }
