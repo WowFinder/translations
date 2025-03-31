@@ -5,6 +5,7 @@ import resources from './translations';
 import { supportedLngs } from './supportedLngs';
 
 function initTranslations(): typeof i18n {
+    // eslint-disable-next-line misc/typescript/no-unsafe-object-assignment
     if ((global as any).i18n) return (global as any).i18n;
 
     (global as any).i18n = i18n
