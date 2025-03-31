@@ -6,7 +6,7 @@ import { distDir } from './constants';
 function writeBufferSync(filePath: string[], raw: string): void {
     fs.writeFileSync(
         path.resolve(distDir, ...filePath),
-        Buffer.from(raw, 'utf-8'),
+        Buffer.from(raw, 'utf-8').toString(),
     );
 }
 
@@ -39,7 +39,7 @@ function main(): void {
         sourceObj.types = sourceObj.types.slice(prefixLength);
     }
     writeBufferSync(['package.json'], JSON.stringify(sourceObj, null, 2));
-    writeBufferSync(['version.txt'], sourceObj.version);
+    writeBufferSync(['version.txt'], `${sourceObj.version}`);
     writeBufferSync(['yarn.lock'], '');
     copyFromParentSync('LICENSE');
     copyFromParentSync('README.md');
