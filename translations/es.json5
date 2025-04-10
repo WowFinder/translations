@@ -1,4 +1,8 @@
 {
+    abbr: {
+        hp: 'PG',
+        initiative: 'Ini',
+    },
     action: {
         free: 'Acción gratuita',
         swift: 'Acción rápida',

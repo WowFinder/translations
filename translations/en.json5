@@ -1,4 +1,8 @@
 {
+    abbr: {
+        hp: 'HP',
+        initiative: 'Ini',
+    },
     action: {
         free: 'Free action',
         swift: 'Swift action',
