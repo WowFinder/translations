@@ -1,7 +1,7 @@
 {
     "name": "@wowfinder/translations",
     "type": "commonjs",
-    "version": "0.0.8",
+    "version": "0.0.9",
     "description": "Localization assets for WowFinder apps and modules",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -33,9 +33,9 @@
         "prepare": "yarn run build"
     },
     "dependencies": {
-        "@wowfinder/ts-utils": "^0.1.12",
+        "@wowfinder/ts-utils": "^0.1.13",
         "globals": "^16.0.0",
-        "i18next": "^25.0.1",
+        "i18next": "^25.0.2",
         "i18next-browser-languagedetector": "^8.0.5",
         "json5": "^2.2.3",
         "path-browserify": "^1.0.1",
@@ -46,11 +46,11 @@
         "@eslint/compat": "^1.2.8",
         "@stylistic/eslint-plugin-js": "^4.2.0",
         "@tsconfig/recommended": "^1.0.8",
-        "@types/node": "^22.15.2",
+        "@types/node": "^22.15.3",
         "@types/react": "^19.1.2",
-        "@typescript-eslint/eslint-plugin": "^8.31.0",
-        "@typescript-eslint/parser": "^8.31.0",
-        "@typescript-eslint/utils": "^8.31.0",
+        "@typescript-eslint/eslint-plugin": "^8.31.1",
+        "@typescript-eslint/parser": "^8.31.1",
+        "@typescript-eslint/utils": "^8.31.1",
         "eslint": "^9.25.1",
         "eslint-config-prettier": "^10.1.2",
         "eslint-config-standard": "^17.1.0",
@@ -68,7 +68,7 @@
         "rimraf": "^6.0.1",
         "ts-jest": "^29.3.2",
         "tslib": "^2.8.1",
-        "tsx": "^4.19.3",
+        "tsx": "^4.19.4",
         "typescript": "^5.8.3"
     },
     "packageManager": "yarn@4.9.1"
